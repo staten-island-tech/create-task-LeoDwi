@@ -27,3 +27,11 @@ const catapis = {
     },
   },
 };
+
+async function getFact(apiLink) {
+  try {
+    let data = await fetch(apiLink);
+  } catch (error) {
+    console.log(error);
+  }
+}
