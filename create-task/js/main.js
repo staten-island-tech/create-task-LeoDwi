@@ -1,12 +1,12 @@
 const dogapis = {
-  api: {
+  /* api: {
     link: "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all",
     prefixes: {
       number: "?number=",
     },
-  },
+  }, */
   api: {
-    link: "http://dog-api.kinduff.com/api/facts",
+    link: "https://dog-api.kinduff.com/api/facts",
     prefixes: {
       number: "?number=",
     },
@@ -41,4 +41,6 @@ async function getFact(apiLink) {
 }
 
 getFact("https://meowfacts.herokuapp.com/?count=1");
-getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1");
+getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2");
+getFact("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=2");
+getFact("https://dog-api.kinduff.com/api/facts");
