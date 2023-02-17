@@ -20,12 +20,12 @@ const catapis = {
       number: "?count=",
     },
   },
-  api: {
+  /* api: {
     link: "https://cat-fact.herokuapp.com",
     prefixes: {
       facts: "/facts/random?animal_type=cat&amount=2",
     },
-  },
+  }, */
 };
 
 async function getFact(apiLink) {
@@ -40,7 +40,18 @@ async function getFact(apiLink) {
   }
 }
 
+async function checkData(object) {
+  let properties = Object.keys(object);
+  if (properties.includes(data)) {
+    return object.data;
+  } else if (properties.includes(facts)) {
+    return object.facts;
+  } else {
+    console.log("what the heck did you do to the api?");
+  }
+}
+
 getFact("https://meowfacts.herokuapp.com/?count=1");
-getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2");
-getFact("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=2");
+//getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2");
+//getFact("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=2");
 getFact("https://dog-api.kinduff.com/api/facts");
