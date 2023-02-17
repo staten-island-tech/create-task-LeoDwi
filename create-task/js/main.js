@@ -32,9 +32,9 @@ async function getFact(apiLink) {
   try {
     let data = await fetch(apiLink);
     let object = await data.json();
-    let facts = object.data;
+    let x = checkData(object);
     console.log(object);
-    console.log(facts);
+    console.log(x);
   } catch (error) {
     console.log(error);
   }
@@ -42,9 +42,9 @@ async function getFact(apiLink) {
 
 async function checkData(object) {
   let properties = Object.keys(object);
-  if (properties.includes(data)) {
+  if (properties.includes("data")) {
     return object.data;
-  } else if (properties.includes(facts)) {
+  } else if (properties.includes("facts")) {
     return object.facts;
   } else {
     console.log("what the heck did you do to the api?");
