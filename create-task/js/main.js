@@ -57,6 +57,21 @@ async function checkData(object) {
   }
 }
 
+function insertHTML(fact) {
+  DomSelectors.parent.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="card">
+    <h3 class=fact>${fact}</h3>
+    </div>
+    `
+  );
+}
+
+function clear() {
+  DomSelectors.parent.innerHTML = "";
+}
+
 getFact("https://meowfacts.herokuapp.com/?count=1");
 //getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2");
 //getFact("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=2");
