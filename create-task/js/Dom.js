@@ -4,3 +4,5 @@ export const DomSelectors = {
   dogButton: document.getElementById("dogs"),
   parent: document.getElementById("parent"),
 };
+
+export const history = [];

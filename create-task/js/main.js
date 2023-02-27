@@ -1,3 +1,6 @@
+import { DomSelectors } from "./Dom";
+import "../styles/style.css";
+
 const dogapis = {
   /* api: {
     link: "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all",
@@ -32,9 +35,12 @@ async function getFact(apiLink) {
   try {
     let data = await fetch(apiLink);
     let object = await data.json();
-    let x = checkData(object);
+    let fact = await checkData(object);
     console.log(object);
-    console.log(x);
+    console.log(fact);
+    history.push(fact[0]);
+    console.log(history);
+    return fact;
   } catch (error) {
     console.log(error);
   }
@@ -55,3 +61,5 @@ getFact("https://meowfacts.herokuapp.com/?count=1");
 //getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2");
 //getFact("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=2");
 getFact("https://dog-api.kinduff.com/api/facts");
+
+const history = [];
