@@ -3,6 +3,7 @@ export const DomSelectors = {
   catButton: document.getElementById("cats"),
   dogButton: document.getElementById("dogs"),
   parent: document.getElementById("parent"),
+  history: document.getElementById("history"),
 };
 
 export const history = [];
