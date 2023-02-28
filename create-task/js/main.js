@@ -33,6 +33,15 @@ const catapis = {
   }, */
 };
 
+function random() {
+  let number = Math.random();
+  if (number >= 0.5) {
+    return "https://meowfacts.herokuapp.com/";
+  } else {
+    return "https://dog-api.kinduff.com/api/facts";
+  }
+}
+
 async function getFact(apiLink) {
   try {
     let data = await fetch(apiLink);
@@ -85,6 +94,18 @@ function clear() {
 
 //getFact("https://meowfacts.herokuapp.com/?count=1");
 //getFact("https://dog-api.kinduff.com/api/facts");
+
+DomSelectors.randomButton.addEventListener(
+  "click",
+  async function getRandomFact() {
+    let link = random();
+    clear();
+    let fact = await getFact(link);
+    console.log(fact);
+    let finalFact = await checkHistory(fact, link);
+    insertHTML(finalFact);
+  }
+);
 
 DomSelectors.catButton.addEventListener("click", async function getCatFacts() {
   let link = "https://meowfacts.herokuapp.com/?count=1";
