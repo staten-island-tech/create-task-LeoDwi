@@ -124,3 +124,13 @@ DomSelectors.dogButton.addEventListener("click", async function getCatFacts() {
   let finalFact = await checkHistory(fact, link);
   insertHTML(finalFact);
 });
+
+DomSelectors.history.addEventListener(
+  "click",
+  async function retrieveHistory() {
+    clear();
+    history.forEach((fact) => {
+      insertHTML(fact);
+    });
+  }
+);
