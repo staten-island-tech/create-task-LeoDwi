@@ -1,6 +1,8 @@
 import { DomSelectors } from "./Dom";
 import "../styles/style.css";
 
+const history = [];
+
 const dogapis = {
   /* api: {
     link: "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all",
@@ -58,7 +60,7 @@ async function checkData(object) {
 }
 
 async function checkHistory(fact, link) {
-  if (history.includes(`${fact}`)) {
+  if (history.includes(fact)) {
     let newFact = await getFact(link);
     return newFact;
   } else {
@@ -81,15 +83,23 @@ function clear() {
   DomSelectors.parent.innerHTML = "";
 }
 
-getFact("https://meowfacts.herokuapp.com/?count=1");
-getFact("https://dog-api.kinduff.com/api/facts");
+//getFact("https://meowfacts.herokuapp.com/?count=1");
+//getFact("https://dog-api.kinduff.com/api/facts");
 
 DomSelectors.catButton.addEventListener("click", async function getCatFacts() {
   let link = "https://meowfacts.herokuapp.com/?count=1";
   clear();
-  let fact = await getFact(link).then(checkData(fact));
+  let fact = await getFact(link);
+  console.log(fact);
   let finalFact = await checkHistory(fact, link);
   insertHTML(finalFact);
 });
 
-const history = [];
+DomSelectors.dogButton.addEventListener("click", async function getCatFacts() {
+  let link = "https://dog-api.kinduff.com/api/facts";
+  clear();
+  let fact = await getFact(link);
+  console.log(fact);
+  let finalFact = await checkHistory(fact, link);
+  insertHTML(finalFact);
+});
