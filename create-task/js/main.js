@@ -57,6 +57,15 @@ async function checkData(object) {
   }
 }
 
+async function checkHistory(fact, link) {
+  if (history.includes(`${fact}`)) {
+    let newFact = await getFact(link);
+    return newFact;
+  } else {
+    return fact;
+  }
+}
+
 function insertHTML(fact) {
   DomSelectors.parent.insertAdjacentHTML(
     "beforeend",
@@ -73,8 +82,14 @@ function clear() {
 }
 
 getFact("https://meowfacts.herokuapp.com/?count=1");
-//getFact("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2");
-//getFact("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=2");
 getFact("https://dog-api.kinduff.com/api/facts");
+
+DomSelectors.catButton.addEventListener("click", async function getCatFacts() {
+  let link = "https://meowfacts.herokuapp.com/?count=1";
+  clear();
+  let fact = await getFact(link).then(checkData(fact));
+  let finalFact = await checkHistory(fact, link);
+  insertHTML(finalFact);
+});
 
 const history = [];
