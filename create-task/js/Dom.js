@@ -4,8 +4,8 @@ export const DomSelectors = {
   dogButton: document.getElementById("dogs"),
   parent: document.getElementById("parent"),
   history: document.getElementById("history"),
-  dogLink: "https://dog-api.kinduff.com/api/facts",
-  catLink: "https://meowfacts.herokuapp.com/",
+  dogLink: "https://dog-api.kinduff.com/api/facts?number=1",
+  catLink: "https://meowfacts.herokuapp.com/?count=1",
 };
 
 export const history = [];
