@@ -105,20 +105,18 @@ DomSelectors.randomButton.addEventListener(
 );
 
 DomSelectors.catButton.addEventListener("click", async function getCatFacts() {
-  let link = "https://meowfacts.herokuapp.com/?count=1";
   clear();
-  let fact = await getFact(link);
+  let fact = await getFact(DomSelectors.catLink);
   console.log(fact);
-  let finalFact = await checkHistory(fact, link);
+  let finalFact = await checkHistory(fact, DomSelectors.catLink);
   insertHTML(finalFact);
 });
 
 DomSelectors.dogButton.addEventListener("click", async function getCatFacts() {
-  let link = "https://dog-api.kinduff.com/api/facts";
   clear();
-  let fact = await getFact(link);
+  let fact = await getFact(DomSelectors.dogLink);
   console.log(fact);
-  let finalFact = await checkHistory(fact, link);
+  let finalFact = await checkHistory(fact, DomSelectors.dogLink);
   insertHTML(finalFact);
 });
 
