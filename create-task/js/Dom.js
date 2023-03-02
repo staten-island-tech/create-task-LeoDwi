@@ -7,5 +7,3 @@ export const DomSelectors = {
   dogLink: "https://dog-api.kinduff.com/api/facts?number=1",
   catLink: "https://meowfacts.herokuapp.com/?count=1",
 };
-
-export const history = [];
