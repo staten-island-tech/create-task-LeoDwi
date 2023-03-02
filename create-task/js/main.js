@@ -92,9 +92,6 @@ function clear() {
   DomSelectors.parent.innerHTML = "";
 }
 
-//getFact("https://meowfacts.herokuapp.com/?count=1");
-//getFact("https://dog-api.kinduff.com/api/facts");
-
 DomSelectors.randomButton.addEventListener(
   "click",
   async function getRandomFact() {
