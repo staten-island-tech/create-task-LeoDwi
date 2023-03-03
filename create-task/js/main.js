@@ -41,7 +41,11 @@ async function checkData(object) {
 async function checkHistory(fact, link) {
   if (history.includes(fact)) {
     let newFact = await getFact(link);
-    return newFact;
+    if (history.includes(newFact)) {
+      return await getFact(link);
+    } else {
+      return newFact;
+    }
   } else {
     return fact;
   }
