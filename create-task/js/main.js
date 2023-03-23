@@ -17,10 +17,7 @@ async function getFact(apiLink) {
     let data = await fetch(apiLink);
     let object = await data.json();
     let fact = await checkData(object);
-    console.log(object);
-    console.log(fact);
     history.push(fact[0]);
-    console.log(history);
     return fact;
   } catch (error) {
     console.log(error);
@@ -42,7 +39,7 @@ async function checkHistory(fact, link) {
   if (history.includes(fact)) {
     let newFact = await getFact(link);
     if (history.includes(newFact)) {
-      return await getFact(link);
+      return await checkHistory(await getFact(link), link);
     } else {
       return newFact;
     }
@@ -86,7 +83,7 @@ DomSelectors.catButton.addEventListener("click", async function getCatFacts() {
   insertHTML(finalFact);
 });
 
-DomSelectors.dogButton.addEventListener("click", async function getCatFacts() {
+DomSelectors.dogButton.addEventListener("click", async function getDogFacts() {
   clear();
   let fact = await getFact(DomSelectors.dogLink);
   console.log(fact);
